@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageId>Unofficial.SenseClient</PackageId>
+    <Authors>Cisien</Authors>
+    <Company>Cisien</Company>
+    <Description>Unofficial client for access data about your Sense power meter from sense.com</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/cisien/SenseClient</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/cisien/SenseClient</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>sense power meter</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Internal\windowsZones.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Text.Json" Version="4.6.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+      <EmbeddedResource Include="Internal\windowsZones.xml" />
+  </ItemGroup>
+
+</Project>
