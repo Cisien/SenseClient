@@ -12,7 +12,9 @@ jobs:
       with:
         dotnet-version: 3.0.100
     - name: Build with dotnet
-      run: dotnet build src/SenseClient --output artifacts/ --configuration Release
+      run: dotnet build src/SenseClient --configuration Release
+    - name: Publish with dotnet
+      run: dotnet publish src/SenseClient -output artifacts/ --configuration Release
     - name: Create Nuget Package
       run: dotnet pack src/SenseClient --output artifacts/ --configuration Release
     - name: Upload artifact
