@@ -1,0 +1,22 @@
+name: .NET Core
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.0.100
+    - name: Build with dotnet
+      run: dotnet build --configuration Release
+    - name: Create Nuget Package
+      run: dotnet pack
+    - name: GH Release
+      uses: softprops/action-gh-release@v0.1.0
+      with:
+        name: SenseClient
+        files: "**/*.nupkg"
