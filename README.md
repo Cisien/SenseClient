@@ -1,4 +1,4 @@
-# SenseClient
+# SenseClient ![Badge](https://github.com/Cisien/SenseClient/workflows/.NET%20Core/badge.svg)
 SenseClient is an unofficial sense.com client targeting .net standard 2.1
 
 ## Getting Started
