@@ -15,17 +15,12 @@ jobs:
       run: dotnet build src/SenseClient --configuration Release
     - name: Publish with dotnet
       run: dotnet publish src/SenseClient --output artifacts/ --configuration Release
+    - name: Pack NuGet Package
+      run: dotnet pack src/SenseClient --output artifacts/ --configuration Release
+    - name: Push package to NuGet
+      run: dotnet nuget push **/*.nupkg --api-key ${{ secrets.NUGET_DEPLOY_KEY}} --source https://api.nuget.org/v3/index.json
     - name: Upload artifact
       uses: actions/upload-artifact@v1.0.0
       with:
         name: Unofficial.SenseClient
         path: artifacts/
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - name: Pack NuGet Package
-        run: dotnet pack src/SenseClient --output artifacts/ --configuration Release
-      - name: Push package to NuGet
-        run: dotnet nuget push **/*.nupkg --api-key ${{ secrets.NUGET_DEPLOY_KEY}} --source https://api.nuget.org/v3/index.json
