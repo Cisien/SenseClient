@@ -19,6 +19,7 @@ jobs:
       run: dotnet pack src/SenseClient --output artifacts/ --configuration Release
     - name: Push package to NuGet
       run: dotnet nuget push **/*.nupkg --api-key ${{ secrets.NUGET_DEPLOY_KEY}} --source https://api.nuget.org/v3/index.json
+      if: github.ref == 'release'
     - name: Upload artifact
       uses: actions/upload-artifact@v1.0.0
       with:
