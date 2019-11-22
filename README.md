@@ -9,4 +9,4 @@ SenseClient is an unofficial sense.com client targeting .net standard 2.1
 * The [dotnet core 3.0 sdk](https://dotnet.microsoft.com/download/dotnet-core/thank-you/sdk-3.0.101-windows-x64-installer)
 
 ## Installing
-The SenseClient nuget package can be installed with `dotnet add SenseClient`
+The SenseClient nuget package can be installed with `dotnet add Unofficial.SenseClient`
